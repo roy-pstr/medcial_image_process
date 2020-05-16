@@ -1,15 +1,20 @@
+##################### Brain MRI Voxels Classification Project #####################
 import numpy as np
+import matplotlib.pyplot as plt
+import os
+import cv2
+import random
 
-#sigmoid activation
+##################### Sigmoid Activation #####################
 def sigmoid(input):
     return 1/(1 + np.exp(-input))
 
-#derivate of a sigmoid w.r.t. input
+##################### Derivative of a Sigmoid w.r.t. Input #####################
 def d_sigmoid(out):
     sig = sigmoid(out)
     return sig * (1 - sig)
 
-#relu activation
+#####################  ReLU Activation #####################
 def relu(input):
     return np.maximum(input, 0)
 
@@ -18,13 +23,35 @@ def d_relu(d_init, out):
     d[out < 0] = 0.
     return d
 
-def create_dataset():
-    # load images
-    # normalize images
+#####################  Dataset Creation #####################
+def create_dataset(train_or_val):
     # create lables (0 - neg, 1 - pos)
-    return images, labels
+    data_classes = ["neg", "pos"]
+    # load images
+    data_arr = []
+    datadir = os.path.dirname(os.path.abspath(__file__))
+    if train_or_val == "training":
+        path = os.path.join(datadir, "training")
+    else:
+        path = os.path.join(datadir, "validation")
+    for data_class in data_classes:
+        label_num = data_classes.index(data_class)
+        for img in os.listdir(path):
+            if data_class in img:
+                img_array = cv2.imread(os.path.join(path, img), cv2.IMREAD_GRAYSCALE)
+                # normalize images
+                img_array = img_array/255
+                data_arr.append([img_array, label_num])
+    random.shuffle(data_arr)
+    x = []
+    y = []
+    for features, label in data_arr:
+        x.append(features.reshape(-1))
+        y.append(label)
+    return [x, y]
 
-def forawrd(X):
+#####################  Forward Function #####################
+def forawrd(X, W1, b1, W2, b2):
     # X: (NxD), N - batch size, D - vectorized image (1024)
     # W1: (DxH), H - hidden layer size, b1: (Hx1)
     # h1: (NxH)
@@ -41,11 +68,17 @@ def forawrd(X):
 
     return y_pred
 
-def calc_loss(y_pred, y_train):
+#####################  Loss Calculation #####################
+def calc_loss(y_pred, y):
     loss = np.sqrt(np.sum(np.power((y_pred-y),2)))
-    # accuracy -> ...
+    # accuracy
+    if round(y_pred)==y:
+        accuracy = 1
+    else:
+        accuracy = 0
     return loss, accuracy
 
+#####################  Backward Function #####################
 def backward(y_train, y_pred):
     dL_dy = (y_train - y_pred) # [Nx1] ??
     dy_dz2 = d_sigmoid(y_train) # [Nx1]
@@ -75,14 +108,16 @@ def backward(y_train, y_pred):
 
     return grads
 
+#####################  Parameters Update #####################
 def update_parameters(grads, lr):
     W1 -= lr * grads['dW1']
     b1 -= lr * grads['db1']
     W2 -= lr * grads['dW2']
     b2 -= lr * grads['db2']
 
+#####################  Main  #####################
 if __name__ == '__main__':
-    # x_train: (512, 1024) y_train: (512, )
+#     x_train: (512, 1024) y_train: (512, )
     [x_train, y_train], [x_val, y_val] = create_dataset()
     for epoch in range(num_epochs):
         for mini_batch in train_batches:
