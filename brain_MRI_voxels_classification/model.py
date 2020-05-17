@@ -107,6 +107,18 @@ class model:
         self.params['W2'] -= lr * self.grads['W2']
         #self.params['b2'] += lr * self.grads['b2']
 
+    def validate(self, x_val, y_val):
+        num_val = x_val.shape[0]
+        val_acc = []
+        for i in range(0, num_val, self.batch_size):
+            if i+self.batch_size >= num_val:
+                break
+            x_val_batch = x_val[i:i+self.batch_size]
+            y_val_batch = y_val[i:i+self.batch_size]
+            curr_val_acc = (np.round(self.forward(x_val_batch)) == y_val_batch).mean()
+            val_acc.append(curr_val_acc)
+        return np.array(val_acc).mean()
+
     def train(self, x, y, x_val, y_val,
               learning_rate=1e-3,
               reg=5e-6, num_iters=100,
@@ -140,8 +152,8 @@ class model:
             if it % iterations_per_epoch == 0:
                 # Check accuracy
                 train_acc = (np.round(self.forward(x_batch)) == y_batch).mean()
-                rand_indices = np.random.choice(num_val, batch_size)
-                val_acc = (np.round(self.forward(x_val[rand_indices])) == y_val[rand_indices]).mean()
+                #rand_indices = np.random.choice(num_val, batch_size)
+                val_acc = self.validate(x_val, y_val)
                 train_acc_history.append(train_acc)
                 val_acc_history.append(val_acc)
 

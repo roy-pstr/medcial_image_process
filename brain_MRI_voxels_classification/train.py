@@ -68,10 +68,10 @@ if __name__ == '__main__':
     image_vector_size = 1024
     hidden_layer_size = 1
     output_size = 1
-    batch_size = 16
+    batch_size = 32
     learning_rate = 1e-2
-    reg = 0
-    std = 0.1
+    reg = 0.001
+    std = 1
     verbose = True
 
     net = model(image_vector_size, batch_size, hidden_layer_size, output_size, std=std)
