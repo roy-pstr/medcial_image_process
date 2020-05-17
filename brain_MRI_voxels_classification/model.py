@@ -62,19 +62,20 @@ class model:
         return y_pred
 
     #####################  Loss Calculation #####################
-    def calc_loss(self, y_pred, y):
-        N = y.shape[0]
+    def calc_loss(self, y_pred, y, reg = 5e-6):
+        N = y.shape[0] # N - batch size
         # loss:
-        loss = (1/2) * np.sum(np.power((y_pred-y), 2))
+        loss = (1/(2*N)) * np.sum(np.power((y_pred-y), 2))
+        loss += reg * (np.sum(self.params['W2'] * self.params['W2']) + np.sum(self.params['W1'] * self.params['W1']))
         # accuracy:
-        y_pred = np.round(y_pred)
-        accuracy = (y_pred==y)
+        accuracy = (np.round(y_pred)==y).mean()
         return loss, accuracy
 
     #####################  Backward Function #####################
     def backward(self, x, y_train, y_pred, reg = 5e-6):
-        dL_dy = np.array(y_train).reshape(1,1) - np.array(y_pred).reshape(1,1) # [Nx1] ?? -> MSE
-        dy_dz2 = d_sigmoid(y_train).reshape(1,1) # [Nx1]
+        N = y_pred.shape[0]  # N - batch size
+        dL_dy = (y_pred-y_train) / N #Nx1]
+        dy_dz2 = d_sigmoid(self.z2) # [Nx1]
         dL_dz2 = dL_dy * dy_dz2 # [Nx1]
 
         # W2 gradient (dL_dW2 = dL_dz2 * dz2_dW2)
@@ -102,6 +103,56 @@ class model:
     #####################  Parameters Update #####################
     def update_parameters(self, lr=1e-3):
         self.params['W1'] -= lr * self.grads['W1']
-        self.params['b1'] -= lr * self.grads['b1']
+        #self.params['b1'] += lr * self.grads['b1']
         self.params['W2'] -= lr * self.grads['W2']
-        self.params['b2'] -= lr * self.grads['b2']
+        #self.params['b2'] += lr * self.grads['b2']
+
+    def train(self, x, y, x_val, y_val,
+              learning_rate=1e-3,
+              reg=5e-6, num_iters=100,
+              batch_size=16, verbose=False):
+
+        num_train = x.shape[0]
+        num_val = x_val.shape[0]
+        iterations_per_epoch = max(num_train / batch_size, 1)
+
+        loss_history = []
+        train_acc_history = []
+        val_acc_history = []
+
+        for it in range(num_iters):
+            X_batch = None
+            y_batch = None
+
+            rand_indices = np.random.choice(num_train, batch_size)
+            x_batch = x[rand_indices]
+            y_batch = y[rand_indices]
+
+            # Compute loss and gradients using the current minibatch
+            y_pred = self.forward(x_batch)
+            loss, accuracy = self.calc_loss(y_pred=y_pred, y=y_batch, reg=reg)
+            self.backward(x_batch, y_train=y_batch, y_pred=y_pred, reg=reg)
+            loss_history.append(loss)
+
+            self.update_parameters(lr=learning_rate)
+
+            # Every epoch, check train and val accuracy and decay learning rate.
+            if it % iterations_per_epoch == 0:
+                # Check accuracy
+                train_acc = (np.round(self.forward(x_batch)) == y_batch).mean()
+                rand_indices = np.random.choice(num_val, batch_size)
+                val_acc = (np.round(self.forward(x_val[rand_indices])) == y_val[rand_indices]).mean()
+                train_acc_history.append(train_acc)
+                val_acc_history.append(val_acc)
+
+            if verbose and it % 100 == 0:
+                print('iteration %d / %d: loss %f accuracy: %f' % (it, num_iters, loss, accuracy))
+                print('                             validate accuracy: %f' % (val_acc))
+
+
+        return {
+            'loss_history': loss_history,
+            'train_acc_history': train_acc_history,
+            'val_acc_history': val_acc_history,
+        }
+
