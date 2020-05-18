@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="98f5aadf-34d2-4032-8078-e8eb90d2a243" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
     </list>
@@ -16,18 +17,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="66" column="16" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
+            <state relative-caret-position="300">
+              <caret line="71" column="24" lean-forward="true" selection-start-line="71" selection-start-column="24" selection-end-line="71" selection-end-column="24" />
               <folding>
                 <element signature="e#84#93#0" expanded="true" />
-                <element signature="e#263#1219#0" />
-                <element signature="e#1100#1432#0" />
-                <element signature="e#1192#1432#0" />
-                <element signature="e#744#945#0" />
-                <element signature="e#1529#1583#0" />
-                <element signature="e#1374#1590#0" />
-                <element signature="e#1638#1794#0" />
-                <marker date="1589744048151" expanded="true" signature="2684:2700" ph="..." />
+                <element signature="e#295#1290#0" />
+                <element signature="e#1405#1621#0" />
+                <element signature="e#1669#1768#0" />
               </folding>
             </state>
           </provider>
@@ -36,18 +32,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="116" column="31" selection-start-line="116" selection-start-column="31" selection-end-line="116" selection-end-column="31" />
+            <state relative-caret-position="594">
+              <caret line="116" column="39" lean-forward="true" selection-start-line="116" selection-start-column="39" selection-end-line="116" selection-end-column="39" />
               <folding>
                 <element signature="e#258#287#0" />
-                <element signature="e#394#439#0" />
-                <element signature="e#523#550#0" />
-                <element signature="e#581#647#0" />
-                <element signature="e#810#1635#0" />
-                <element signature="e#413#468#0" />
-                <element signature="e#2398#2591#0" />
-                <element signature="e#2728#3773#0" />
-                <element signature="e#3294#3682#0" />
+                <element signature="e#380#425#0" />
+                <element signature="e#509#536#0" />
+                <element signature="e#631#697#0" />
+                <element signature="e#1737#2286#0" />
               </folding>
             </state>
           </provider>
@@ -70,6 +62,8 @@
       <find>REG</find>
       <find>our_model</find>
       <find>reg</find>
+      <find>dL_db2</find>
+      <find>batch_size</find>
     </findStrings>
     <replaceStrings>
       <replace>update_parameters</replace>
@@ -89,10 +83,11 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="953" />
-    <option name="width" value="974" />
-    <option name="height" value="1040" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="976" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -195,15 +190,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="976" height="1056" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13066386" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26439232" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33694476" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.33694476" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -230,11 +224,6 @@
           <line>97</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/model.py</url>
-          <line>112</line>
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -256,38 +245,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://C:/Python/Python37/Lib/site-packages/numpy/core/fromnumeric.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="436" selection-start-line="436" selection-end-line="436" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="116" column="31" selection-start-line="116" selection-start-column="31" selection-end-line="116" selection-end-column="31" />
+        <state relative-caret-position="594">
+          <caret line="116" column="39" lean-forward="true" selection-start-line="116" selection-start-column="39" selection-end-line="116" selection-end-column="39" />
           <folding>
             <element signature="e#258#287#0" />
-            <element signature="e#394#439#0" />
-            <element signature="e#523#550#0" />
-            <element signature="e#581#647#0" />
-            <element signature="e#810#1635#0" />
-            <element signature="e#413#468#0" />
-            <element signature="e#2398#2591#0" />
-            <element signature="e#2728#3773#0" />
-            <element signature="e#3294#3682#0" />
+            <element signature="e#380#425#0" />
+            <element signature="e#509#536#0" />
+            <element signature="e#631#697#0" />
+            <element signature="e#1737#2286#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="66" column="16" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
+        <state relative-caret-position="300">
+          <caret line="71" column="24" lean-forward="true" selection-start-line="71" selection-start-column="24" selection-end-line="71" selection-end-column="24" />
           <folding>
             <element signature="e#84#93#0" expanded="true" />
-            <element signature="e#263#1219#0" />
-            <element signature="e#1100#1432#0" />
-            <element signature="e#1192#1432#0" />
-            <element signature="e#744#945#0" />
-            <element signature="e#1529#1583#0" />
-            <element signature="e#1374#1590#0" />
-            <element signature="e#1638#1794#0" />
-            <marker date="1589744048151" expanded="true" signature="2684:2700" ph="..." />
+            <element signature="e#295#1290#0" />
+            <element signature="e#1405#1621#0" />
+            <element signature="e#1669#1768#0" />
           </folding>
         </state>
       </provider>

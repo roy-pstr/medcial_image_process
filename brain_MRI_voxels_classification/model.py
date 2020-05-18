@@ -23,25 +23,22 @@ def d_relu(d_init, out):
     return d
 
 class model:
-    def __init__(self, input_size, batch_size, hidden_layer_size, output_size, std=1e-4):
+    def __init__(self, input_size, hidden_layer_size, output_size, std=1e-4):
         self.input_size = input_size
-        self.batch_size = batch_size
         self.hidden_layer_size = hidden_layer_size
 
         self.params = {}
         self.params['W1'] = std * np.random.randn(input_size, hidden_layer_size)
         self.params['b1'] = np.zeros(hidden_layer_size)
         self.params['W2'] = std * np.random.randn(hidden_layer_size, output_size)
-        self.params['b2'] = np.zeros((batch_size, output_size))
+        self.params['b2'] = np.zeros((output_size, 1))
 
         self.grads = {}
         self.grads['W1'] = np.zeros((input_size, hidden_layer_size))
         self.grads['b1'] = np.zeros(hidden_layer_size)
         self.grads['W2'] = np.zeros((hidden_layer_size, output_size))
-        self.grads['b2'] = np.zeros((batch_size, output_size))
+        self.grads['b2'] = np.zeros((output_size, 1))
 
-        self.z1 = self.h1 = np.zeros((self.batch_size, self.input_size))
-        self.z2 = np.zeros(self.batch_size)
 
     #####################  Forward Function #####################
     def forward(self, x):
@@ -50,13 +47,13 @@ class model:
         # h1: (NxH)
         # W2: (Hx1), H - hidden layer size, b2: (Nx1)
         # y_pred: (Nx1)
-
+        batch_size = x.shape[0] # N
         # hidden layer:
         self.z1 = x.dot(self.params['W1']) + self.params['b1']  # fully connected -> (N, H)
         self.h1 = relu(self.z1)  # ReLU
 
         # output layer:
-        self.z2 = self.h1.dot(self.params['W2']) + self.params['b2']  # fully connected - > (N, )
+        self.z2 = self.h1.dot(self.params['W2']) +  self.params['b2'] # fully connected - > (N, )
         y_pred = sigmoid(self.z2) # h2
 
         return y_pred
@@ -83,7 +80,7 @@ class model:
         dL_dW2 = np.dot(dz2_dW2.transpose(), dL_dz2) # [HxN] * [Nx1] = [Hx1]
 
         # b2 gradient (dL_db2 = dL_dz2 * dz2_db2 = dL_dz2)
-        dL_db2 = dL_dz2 # [Nx1]
+        dL_db2 = dL_dz2.sum(axis=0) # [1x1]
 
         # W1 gradient (dL_dW1 = dL_dz1 * dz1_dW1)
         dL_dh1 = np.dot(dL_dz2, self.params['W2'].transpose()) # W2 = dz2_dh1, [Nx1] * [1xH] = [NxH]
@@ -103,20 +100,20 @@ class model:
     #####################  Parameters Update #####################
     def update_parameters(self, lr=1e-3):
         self.params['W1'] -= lr * self.grads['W1']
-        #self.params['b1'] += lr * self.grads['b1']
+        self.params['b1'] += lr * self.grads['b1']
         self.params['W2'] -= lr * self.grads['W2']
-        #self.params['b2'] += lr * self.grads['b2']
+        self.params['b2'] += lr * self.grads['b2']
 
     def validate(self, x_val, y_val):
-        num_val = x_val.shape[0]
+        # num_val = x_val.shape[0]
         val_acc = []
-        for i in range(0, num_val, self.batch_size):
-            if i+self.batch_size >= num_val:
-                break
-            x_val_batch = x_val[i:i+self.batch_size]
-            y_val_batch = y_val[i:i+self.batch_size]
-            curr_val_acc = (np.round(self.forward(x_val_batch)) == y_val_batch).mean()
-            val_acc.append(curr_val_acc)
+        # for i in range(0, num_val, self.batch_size):
+        #     if i+self.batch_size >= num_val:
+        #         break
+        #     x_val_batch = x_val[i:i+self.batch_size]
+        #     y_val_batch = y_val[i:i+self.batch_size]
+        val_acc = (np.round(self.forward(x_val)) == y_val).mean()
+        #val_acc.append(curr_val_acc)
         return np.array(val_acc).mean()
 
     def train(self, x, y, x_val, y_val,

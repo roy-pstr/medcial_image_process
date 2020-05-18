@@ -66,15 +66,15 @@ if __name__ == '__main__':
 
     num_iter = 50000
     image_vector_size = 1024
-    hidden_layer_size = 1
+    hidden_layer_size = 32
     output_size = 1
-    batch_size = 32
-    learning_rate = 1e-2
+    batch_size = 16
+    learning_rate = 1e-3
     reg = 0.001
-    std = 1
+    std = np.sqrt(2.0/1024) # according to cs231n course weight std init.
     verbose = True
 
-    net = model(image_vector_size, batch_size, hidden_layer_size, output_size, std=std)
+    net = model(image_vector_size, hidden_layer_size, output_size, std=std)
     stats = net.train(x=x_train, y=y_train, x_val=x_val, y_val=y_val, learning_rate=learning_rate,
                         reg=reg, num_iters=num_iter,
                         batch_size=batch_size, verbose=verbose)
