@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="98f5aadf-34d2-4032-8078-e8eb90d2a243" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,14 +15,15 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="148" selection-start-line="148" selection-end-line="148" />
+            <state relative-caret-position="242">
+              <caret line="141" lean-forward="true" selection-start-line="141" selection-end-line="141" />
               <folding>
                 <element signature="e#84#93#0" expanded="true" />
-                <element signature="e#1405#1621#0" />
-                <element signature="e#1669#1768#0" />
+                <element signature="e#295#1290#0" />
+                <element signature="e#1875#2098#0" />
                 <element signature="e#2240#2509#0" />
-                <marker date="1590930689708" expanded="true" signature="4223:4619" ph="..." />
+                <element signature="e#5913#6384#0" />
+                <marker date="1590930960025" expanded="true" signature="4000:4396" ph="..." />
               </folding>
             </state>
           </provider>
@@ -68,6 +68,8 @@
       <find>batch_size</find>
       <find>reg</find>
       <find>validate</find>
+      <find>get_random_batch</find>
+      <find>split_to_mini_batches</find>
     </findStrings>
     <replaceStrings>
       <replace>update_parameters</replace>
@@ -282,14 +284,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="148" selection-start-line="148" selection-end-line="148" />
+        <state relative-caret-position="242">
+          <caret line="141" lean-forward="true" selection-start-line="141" selection-end-line="141" />
           <folding>
             <element signature="e#84#93#0" expanded="true" />
-            <element signature="e#1405#1621#0" />
-            <element signature="e#1669#1768#0" />
+            <element signature="e#295#1290#0" />
+            <element signature="e#1875#2098#0" />
             <element signature="e#2240#2509#0" />
-            <marker date="1590930689708" expanded="true" signature="4223:4619" ph="..." />
+            <element signature="e#5913#6384#0" />
+            <marker date="1590930960025" expanded="true" signature="4000:4396" ph="..." />
           </folding>
         </state>
       </provider>

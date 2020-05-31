@@ -40,18 +40,8 @@ def create_dataset(train_or_val):
 
     return x, y
 
-#####################  Split to Batches #####################
-def split_to_mini_batches(x,y, batch_size=32):
-    # split [num_of_inputs, N] -> [num_of_inputs / D, D, N]
-    num_of_inputs = x.shape[0]
-    N = x.shape[1]
-    D = batch_size
-    return x.reshape(int(num_of_inputs / D), D, N), y.reshape(int(num_of_inputs / D), D, 1)
-
-def get_random_batch(x,y, batch_size=32):
-    rand_indices = np.random.choice(x.shape[0], batch_size)
-    return x[rand_indices], y[rand_indices]
-
+###################### Optimaze hyper-parameters ######################
+# generate random values in a given range
 def generate_random_hyperparams(lr_min, lr_max, reg_min, reg_max, h_min, h_max, b_min, b_max):
     lr = 10**np.random.uniform(lr_min,lr_max)
     reg = 10**np.random.uniform(reg_min,reg_max)
@@ -67,6 +57,12 @@ def random_search_hyperparams(lr_values, reg_values, h_values, b_values):
     batch_size = b_values[np.random.randint(0,len(b_values))]
     return lr, reg, hidden, batch_size
 
+def print_results_sorted(results):
+    def takeacc(elm):
+        return elm[0]
+
+    results.sort(key=takeacc)
+    for r in results: print(r)
 #####################  Main  #####################
 if __name__ == '__main__':
     #     x_train: (512, 1024) y_train: (512, )
@@ -131,10 +127,7 @@ if __name__ == '__main__':
         print('best validation accuracy achieved: %f' % best_val)
 
         # sort and print results
-        def takeacc(elm):
-            return elm[0]
-        results.sort(key=takeacc)
-        for r in results: print(r)
+        print_results_sorted(results)
 
     else: #use default parameters
         net = model(image_vector_size, hidden_size, output_size, std=std)
