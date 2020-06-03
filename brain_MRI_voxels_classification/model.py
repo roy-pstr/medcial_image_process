@@ -147,5 +147,5 @@ class model:
             'loss_history': loss_history,
             'train_acc_history': train_acc_history,
             'val_acc_history': val_acc_history,
-        }
+        } , self.params
 

@@ -5,6 +5,7 @@ import cv2
 from model import model
 import numpy as np
 import matplotlib.pyplot as plt
+import json
 
 #####################  Dataset Creation #####################
 def create_dataset(train_or_val):
@@ -63,6 +64,32 @@ def print_results_sorted(results):
 
     results.sort(key=takeacc)
     for r in results: print(r)
+
+def make_json(trained_dict, path_to_save):
+       """
+       make json file with trained parameters.
+       W1: numpy arrays of shape (1024, nn_h_dim)
+       W2: numpy arrays of shape (nn_h_dim, 1)
+       b1: numpy arrays of shape (1, nn_h_dim)
+       b2: numpy arrays of shape (1, 1)
+       id1: id1 - int
+       id2: id2 - int
+       activation1: one of only: 'sigmoid', 'tanh', 'ReLU', 'final_act' - str
+       activation2: 'sigmoid' - str
+        number of neirons in hidden layer - int
+       :param nn_h_dim: trained_dict = {'weights': (W1, W2),
+                                       'biases': (b1, b2),
+                                       'nn_hdim': nn_h_dim,
+                                       'activation_1': activation1,
+                                       'activation_2': activation2,
+                                       'IDs': (id1, id2)}
+       """
+       file_path = os.path.join(path_to_save, 'trained_dict_{}_{}.json'.format(
+           trained_dict.get('IDs')[0], trained_dict.get('IDs')[1])
+                                )
+       with open(file_path, 'w') as f:
+           json.dump(trained_dict, f, indent=4)
+
 #####################  Main  #####################
 if __name__ == '__main__':
     #     x_train: (512, 1024) y_train: (512, )
@@ -131,7 +158,7 @@ if __name__ == '__main__':
 
     else: #use default parameters
         net = model(image_vector_size, hidden_size, output_size, std=std)
-        stats = net.train(x=x_train, y=y_train, x_val=x_val, y_val=y_val, learning_rate=lr,
+        stats, params_arr = net.train(x=x_train, y=y_train, x_val=x_val, y_val=y_val, learning_rate=lr,
                           reg=reg, num_iters=num_iter,
                           batch_size=batch_size, verbose=verbose)
         # Predict on the training set
@@ -157,3 +184,22 @@ if __name__ == '__main__':
         plt.legend()
         plt.show()
     print("finished training")
+
+    W1 = params_arr['W1'].tolist()
+    W2 = params_arr['W2'].tolist()
+    b1 = params_arr['b1'].tolist()
+    b2 = params_arr['b2'].tolist()
+
+    trained_dict = {'weights': (W1, W2),
+                    'biases': (b1, b2),
+                    'nn_hdim': 53,
+                    'activation_1': 'ReLU',
+                    'activation_2': 'sigmoid',
+                    'IDs': (204219273, 312178999)}
+
+    path_to_save = os.path.dirname(os.path.abspath(__file__))
+
+    make_json(trained_dict, path_to_save)
+
+
+
