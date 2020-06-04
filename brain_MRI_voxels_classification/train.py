@@ -119,9 +119,9 @@ if __name__ == '__main__':
         params = ['lr', 'reg', 'hidden', 'batch']
         for i in range(20):
             # Use generate_random function with 1000 iterations
-            #lr, reg, hidden_size, batch_size = generate_random_hyperparams(-5, -1, -5, 0, 1, 100, 1, 256) #1000 iters
-            #lr, reg, hidden_size, batch_size = generate_random_hyperparams(-3, -1, -6, -4, 8, 92, 32, 256) #1000 iters
-            #lr, reg, hidden_size, batch_size = generate_random_hyperparams(-2, -1, -6, -5, 40, 60, 100, 230)  # 1000 iters
+            lr, reg, hidden_size, batch_size = generate_random_hyperparams(-5, -1, -5, 0, 1, 100, 1, 256) #1000 iters
+            lr, reg, hidden_size, batch_size = generate_random_hyperparams(-3, -1, -6, -4, 8, 92, 32, 256) #1000 iters
+            lr, reg, hidden_size, batch_size = generate_random_hyperparams(-2, -1, -6, -5, 40, 60, 100, 230)  # 1000 iters
 
             # According to the previous results, reduce the exploration by selecting set of fixed ranges
             # use this ranges in the random search function to explore random combinations
@@ -170,7 +170,8 @@ if __name__ == '__main__':
     if verbose:
         # Plot the loss function and train / validation accuracies
         plt.subplot(2, 1, 1)
-        plt.plot(stats['loss_history'])
+        plt.plot(stats['loss_history'], label='train')
+        plt.plot(stats['val_loss_history'], label='val')
         plt.title('Loss history')
         plt.xlabel('Iteration')
         plt.ylabel('Loss')

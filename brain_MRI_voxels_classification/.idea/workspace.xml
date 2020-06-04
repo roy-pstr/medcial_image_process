@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="98f5aadf-34d2-4032-8078-e8eb90d2a243" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NN Paster and Gabi.docx" beforeDir="false" afterPath="$PROJECT_DIR$/NN Paster and Gabi.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,15 +18,24 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="141" lean-forward="true" selection-start-line="141" selection-end-line="141" />
+            <state relative-caret-position="898">
+              <caret line="155" column="32" lean-forward="true" selection-start-line="155" selection-start-column="32" selection-end-line="155" selection-end-column="32" />
               <folding>
-                <element signature="e#84#93#0" expanded="true" />
-                <element signature="e#295#1290#0" />
-                <element signature="e#1875#2098#0" />
-                <element signature="e#2240#2509#0" />
-                <element signature="e#5913#6384#0" />
-                <marker date="1590930960025" expanded="true" signature="4000:4396" ph="..." />
+                <element signature="e#307#1308#0" />
+                <element signature="e#658#968#0" />
+                <element signature="e#750#968#0" />
+                <element signature="e#788#968#0" />
+                <element signature="e#1060#1109#0" />
+                <element signature="e#1186#1231#0" />
+                <element signature="e#1310#1381#0" />
+                <element signature="e#1523#1746#0" />
+                <element signature="e#1888#2157#0" />
+                <element signature="e#2198#2299#0" />
+                <element signature="e#2224#2237#0" />
+                <element signature="e#2351#3444#0" />
+                <element signature="e#2351#3176#1" />
+                <element signature="e#6155#6244#0" />
+                <element signature="e#8000#8238#0" />
               </folding>
             </state>
           </provider>
@@ -32,17 +44,16 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="114" column="71" selection-start-line="114" selection-start-column="71" selection-end-line="114" selection-end-column="71" />
+            <state relative-caret-position="237">
+              <caret line="128" column="41" selection-start-line="128" selection-start-column="41" selection-end-line="128" selection-end-column="41" />
               <folding>
                 <element signature="e#258#287#0" />
                 <element signature="e#380#425#0" />
                 <element signature="e#509#536#0" />
                 <element signature="e#631#697#0" />
                 <element signature="e#798#1450#0" />
-                <element signature="e#1553#1608#0" />
-                <element signature="e#2716#3763#0" />
-                <element signature="e#6234#6387#0" />
+                <element signature="e#1552#2136#0" />
+                <element signature="e#2709#3756#0" />
               </folding>
             </state>
           </provider>
@@ -85,16 +96,15 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/test.py" />
-        <option value="$PROJECT_DIR$/model.py" />
         <option value="$PROJECT_DIR$/train.py" />
+        <option value="$PROJECT_DIR$/model.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="952" />
-    <option name="y" value="-8" />
-    <option name="width" value="976" />
-    <option name="height" value="1056" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="953" />
+    <option name="width" value="974" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -102,6 +112,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -113,7 +124,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -200,12 +210,12 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13066386" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.09799789" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.21018419" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3434453" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -223,22 +233,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/../.." />
     </ignored-roots>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/model.py</url>
-          <line>114</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/model.py</url>
-          <line>136</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
@@ -267,32 +261,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="114" column="71" selection-start-line="114" selection-start-column="71" selection-end-line="114" selection-end-column="71" />
+        <state relative-caret-position="237">
+          <caret line="128" column="41" selection-start-line="128" selection-start-column="41" selection-end-line="128" selection-end-column="41" />
           <folding>
             <element signature="e#258#287#0" />
             <element signature="e#380#425#0" />
             <element signature="e#509#536#0" />
             <element signature="e#631#697#0" />
             <element signature="e#798#1450#0" />
-            <element signature="e#1553#1608#0" />
-            <element signature="e#2716#3763#0" />
-            <element signature="e#6234#6387#0" />
+            <element signature="e#1552#2136#0" />
+            <element signature="e#2709#3756#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="141" lean-forward="true" selection-start-line="141" selection-end-line="141" />
+        <state relative-caret-position="898">
+          <caret line="155" column="32" lean-forward="true" selection-start-line="155" selection-start-column="32" selection-end-line="155" selection-end-column="32" />
           <folding>
-            <element signature="e#84#93#0" expanded="true" />
-            <element signature="e#295#1290#0" />
-            <element signature="e#1875#2098#0" />
-            <element signature="e#2240#2509#0" />
-            <element signature="e#5913#6384#0" />
-            <marker date="1590930960025" expanded="true" signature="4000:4396" ph="..." />
+            <element signature="e#307#1308#0" />
+            <element signature="e#658#968#0" />
+            <element signature="e#750#968#0" />
+            <element signature="e#788#968#0" />
+            <element signature="e#1060#1109#0" />
+            <element signature="e#1186#1231#0" />
+            <element signature="e#1310#1381#0" />
+            <element signature="e#1523#1746#0" />
+            <element signature="e#1888#2157#0" />
+            <element signature="e#2198#2299#0" />
+            <element signature="e#2224#2237#0" />
+            <element signature="e#2351#3444#0" />
+            <element signature="e#2351#3176#1" />
+            <element signature="e#6155#6244#0" />
+            <element signature="e#8000#8238#0" />
           </folding>
         </state>
       </provider>

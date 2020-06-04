@@ -63,9 +63,7 @@ class model:
         # loss:
         loss = (1/(2*N)) * np.sum(np.power((y_pred-y), 2))
         loss += reg * (np.sum(self.params['W2'] * self.params['W2']) + np.sum(self.params['W1'] * self.params['W1']))
-        # accuracy:
-        accuracy = (np.round(y_pred)==y).mean()
-        return loss, accuracy
+        return loss
 
     #####################  Backward Function #####################
     def backward(self, x, y_train, y_pred, reg = 0):
@@ -115,6 +113,7 @@ class model:
         iterations_per_epoch = np.round(max(num_train / batch_size, 1))
 
         loss_history = []
+        val_loss_history = []
         train_acc_history = []
         val_acc_history = []
 
@@ -125,10 +124,13 @@ class model:
 
             # Compute loss and gradients using the current minibatch
             y_pred = self.forward(x_batch)
-            loss, accuracy = self.calc_loss(y_pred=y_pred, y=y_batch, reg=reg)
-            self.backward(x_batch, y_train=y_batch, y_pred=y_pred, reg=reg)
+            loss = self.calc_loss(y_pred=y_pred, y=y_batch, reg=reg)
             loss_history.append(loss)
+            self.backward(x_batch, y_train=y_batch, y_pred=y_pred, reg=reg)
 
+            y_val_pred = self.forward(x_val)
+            val_loss = self.calc_loss(y_pred=y_val_pred, y=y_val, reg=reg)
+            val_loss_history.append(val_loss)
             self.update_parameters(lr=learning_rate)
 
             # Every epoch, check train and val accuracy
@@ -145,6 +147,7 @@ class model:
 
         return {
             'loss_history': loss_history,
+            'val_loss_history': val_loss_history,
             'train_acc_history': train_acc_history,
             'val_acc_history': val_acc_history,
         } , self.params
