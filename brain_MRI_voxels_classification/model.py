@@ -142,7 +142,7 @@ class model:
                 val_acc_history.append(val_acc)
 
             if verbose and it % 100 == 0:
-                print('iteration %d / %d: loss %f train_acc: %f  validation_acc: %f' % (it, num_iters, loss, train_acc, val_acc))
+                print('iteration %d / %d: train_loss %f val_loss %f train_acc: %f  validation_acc: %f' % (it, num_iters, loss, val_loss, train_acc, val_acc))
 
 
         return {

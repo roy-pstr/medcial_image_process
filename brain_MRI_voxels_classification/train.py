@@ -35,7 +35,7 @@ def create_dataset(train_or_val):
     x = np.array(x)
     y = np.array(y)
     y = y.reshape(y.shape[0],1)
-    # Normalize the data: subtract the mean image
+    # # Normalize the data: subtract the mean image
     # mean_image = np.mean(x, axis=0)
     # x -= mean_image
 
@@ -172,14 +172,15 @@ if __name__ == '__main__':
         plt.subplot(2, 1, 1)
         plt.plot(stats['loss_history'], label='train')
         plt.plot(stats['val_loss_history'], label='val')
-        plt.title('Loss history')
+        plt.title('Loss versus iteration')
         plt.xlabel('Iteration')
+        plt.legend()
         plt.ylabel('Loss')
 
         plt.subplot(2, 1, 2)
         plt.plot(stats['train_acc_history'], label='train')
         plt.plot(stats['val_acc_history'], label='val')
-        plt.title('Classification accuracy history')
+        plt.title('Accuracy versus epoch')
         plt.xlabel('Epoch')
         plt.ylabel('Classification accuracy')
         plt.legend()
