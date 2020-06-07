@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="98f5aadf-34d2-4032-8078-e8eb90d2a243" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/NN Paster and Gabi.docx" beforeDir="false" afterPath="$PROJECT_DIR$/NN Paster and Gabi.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trained_dict_204219273_312178999.json" beforeDir="false" afterPath="$PROJECT_DIR$/trained_dict_204219273_312178999.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,22 +15,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+            <state relative-caret-position="425">
+              <caret line="40" selection-start-line="40" selection-end-line="40" />
               <folding>
                 <element signature="e#658#968#0" />
                 <element signature="e#750#968#0" />
                 <element signature="e#788#968#0" />
                 <element signature="e#1060#1109#0" />
-                <element signature="e#1310#1381#0" />
-                <element signature="e#1523#1746#0" />
-                <element signature="e#1888#2157#0" />
-                <element signature="e#2198#2299#0" />
-                <element signature="e#2224#2237#0" />
-                <element signature="e#2351#3444#0" />
-                <element signature="e#2351#3176#1" />
-                <element signature="e#6155#6244#0" />
-                <element signature="e#8000#8238#0" />
               </folding>
             </state>
           </provider>
@@ -42,7 +30,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
+            <state relative-caret-position="1700">
               <caret line="140" column="51" selection-start-line="140" selection-start-column="51" selection-end-line="140" selection-end-column="51" />
               <folding>
                 <element signature="e#258#287#0" />
@@ -51,7 +39,6 @@
                 <element signature="e#631#697#0" />
                 <element signature="e#798#1450#0" />
                 <element signature="e#1552#2136#0" />
-                <element signature="e#2709#3756#0" />
               </folding>
             </state>
           </provider>
@@ -127,7 +114,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../homework" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunDashboard">
@@ -258,26 +245,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="140" column="51" selection-start-line="140" selection-start-column="51" selection-end-line="140" selection-end-column="51" />
-          <folding>
-            <element signature="e#258#287#0" />
-            <element signature="e#380#425#0" />
-            <element signature="e#509#536#0" />
-            <element signature="e#631#697#0" />
-            <element signature="e#798#1450#0" />
-            <element signature="e#1552#2136#0" />
-            <element signature="e#2709#3756#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+        <state relative-caret-position="425">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
           <folding>
             <element signature="e#658#968#0" />
             <element signature="e#750#968#0" />
@@ -292,6 +263,21 @@
             <element signature="e#2351#3176#1" />
             <element signature="e#6155#6244#0" />
             <element signature="e#8000#8238#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1700">
+          <caret line="140" column="51" selection-start-line="140" selection-start-column="51" selection-end-line="140" selection-end-column="51" />
+          <folding>
+            <element signature="e#258#287#0" />
+            <element signature="e#380#425#0" />
+            <element signature="e#509#536#0" />
+            <element signature="e#631#697#0" />
+            <element signature="e#798#1450#0" />
+            <element signature="e#1552#2136#0" />
           </folding>
         </state>
       </provider>
